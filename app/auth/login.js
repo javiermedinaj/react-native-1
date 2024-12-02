@@ -1,12 +1,17 @@
 import React from 'react';
-import { View, TextInput, Text, TouchableOpacity } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, Image } from 'react-native';
 
 const LoginScreen = () => {
   return (
-    <View className="flex justify-center items-center h-full bg-gray-100">
+    <View className="flex justify-center items-center h-full bg-red-400">
+  
       <View className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
         <View className="items-center mb-6">
-          <Text className="text-3xl font-bold text-gray-800">Universidad de Belgrano</Text>
+        <Image 
+            source={require('../../assets/logo_without_bg.png')}
+            className="w-38 h-28 object-contain"
+            resizeMode="contain"
+          />
         </View>
         <View className="mb-4">
           <TextInput
@@ -26,7 +31,7 @@ const LoginScreen = () => {
         <TouchableOpacity
           className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg"
         >
-          <Text className="text-white">Log In</Text>
+          <Text className="text-white text-center">Log In</Text>
         </TouchableOpacity>
         <View className="flex-row justify-between mt-4">
           <TouchableOpacity>
@@ -37,9 +42,6 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
         <View className="items-center mt-4">
-          <TouchableOpacity>
-            <Text className="text-blue-500">Iniciar sesión como invitado</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </View>

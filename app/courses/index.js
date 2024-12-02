@@ -1,5 +1,5 @@
-// app/(app)/courses.js
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { Link } from 'expo-router';
 
 export default function Courses() {
   const courses = [
@@ -13,9 +13,13 @@ export default function Courses() {
       <FlatList 
         data={courses}
         renderItem={({item}) => (
-          <View className="p-4 bg-gray-100 mb-2 rounded">
-            <Text>{item.title}</Text>
-          </View>
+          <Link href={`/courses/${item.id}`} asChild>
+            <TouchableOpacity>
+              <View className="p-4 bg-gray-100 mb-2 rounded">
+                <Text>{item.title}</Text>
+              </View>
+            </TouchableOpacity>
+          </Link>
         )}
         keyExtractor={item => item.id.toString()}
       />

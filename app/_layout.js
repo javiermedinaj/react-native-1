@@ -1,28 +1,17 @@
 import { Stack } from 'expo-router';
-import '../global.css'
+import Navbar from '../components/Navbar';
+import '../global.css';
 
 export default function RootLayout() {
   return (
-    <Stack>
-      <Stack.Screen 
-        name="index" 
-        options={{
-          title: 'Welcome'
-        }}
-      />
-      <Stack.Screen 
-        name="(auth)/login" 
-        options={{
-          title: 'Login'
-        }}
-      />
-      <Stack.Screen 
-        name="(app)/courses" 
-        options={{
-          title: 'Courses'
-        }}
-      />
-    </Stack>
+    <>
+      <Navbar/>
+      <Stack screenOptions={{headerShown:false}}>
+        <Stack.Screen name="index"/>
+        <Stack.Screen name="(auth)/login"/>
+        <Stack.Screen name="courses/index"/>
+        <Stack.Screen name="courses/[id]"/>
+      </Stack>
+    </>
   );
 }
-
