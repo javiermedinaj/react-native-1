@@ -1,27 +1,39 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { Link } from "expo-router";
+import { Ionicons } from '@expo/vector-icons'; 
 
 export default function Navbar() {
   return (
-    <View className="flex-row justify-between items-center bg-red-700 p-4">
+    <View className="flex-row justify-around items-center bg-neutral-700 p-4">
+      
       <Link href="/" asChild>
-        <TouchableOpacity>
-          <Text className="text-white font-bold">Home</Text>
+        <TouchableOpacity className="flex-col items-center">
+          <Ionicons name="home-outline" size={24} color="white" />
+          <Text className="text-white mt-1">Home</Text>
         </TouchableOpacity>
       </Link>
       
-      <View className="flex-row gap-4">
-        <Link href="/auth/login" asChild>
-          <TouchableOpacity>
-            <Text className="text-white">Login</Text>
-          </TouchableOpacity>
-        </Link>
-        <Link href="/courses" asChild>
-          <TouchableOpacity>
-            <Text className="text-white">Courses</Text>
-          </TouchableOpacity>
-        </Link>
-      </View>
+      <Link href="/auth/login" asChild>
+        <TouchableOpacity className="flex-col items-center">
+          <Ionicons name="log-in-outline" size={24} color="white" />
+          <Text className="text-white mt-1">Login</Text>
+        </TouchableOpacity>
+      </Link>
+      
+      <Link href="/courses" asChild>
+        <TouchableOpacity className="flex-col items-center">
+          <Ionicons name="book-outline" size={24} color="white" />
+          <Text className="text-white mt-1">Learn</Text>
+        </TouchableOpacity>
+      </Link>
+      
+      <Link href="/profile" asChild>
+        <TouchableOpacity className="flex-col items-center">
+          <Ionicons name="person-outline" size={24} color="white" />
+          <Text className="text-white mt-1">Profile</Text>
+        </TouchableOpacity>
+      </Link>
+      
     </View>
   );
 }
